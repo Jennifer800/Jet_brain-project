@@ -1,0 +1,29 @@
+'''Description
+In order to train the machine to predict the next user input, we need to collect data about the user. We will ask them to press 0's and 1's on the keyboard in an unpredictable order. These data will be kept in a string of the format "011100101010...". All other characters should not be taken into account (in case the user makes a mistake and presses "2" instead of "1", for example).
+
+Objectives
+In this stage, your program should:
+
+Set the minimal length of the string of zeros and ones that the user should enter. Let's choose the value 100: this will allow you to collect enough statistics without taking too much of the user's time.
+Filter out inappropriate symbols from each user input.
+Append the processed string to the general string containing all the data from the input.
+Keep asking the user for new input strings and appending them to the general string until the length of the general string is equal or exceeds 100. If it exceeds 100, don't remove extra symbols: 100 symbols are the minimum required length, but the more data we have, the better.
+Output the final data string.'''
+
+print("Print a random string containing 0 or 1:")
+print()
+data = '01'
+k = ''
+while True:
+    user = input()
+    for i in user:
+        if i in data:
+            k = k + i
+    y = len(k)
+    a = 100 - len(k)
+    if len(k) < 100:
+        print("Current data length is", y, a, "symbols left\nPrint a random string containing 0 or 1:\n")
+    elif len(k)>= 100:
+        print("\nFinal data string:")
+        print(k)
+        break
